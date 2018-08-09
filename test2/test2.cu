@@ -71,10 +71,13 @@ void vecAddonDevice(double *h_A,double *h_B,double *h_C,int n) {
 int main(int argc, char **argv) {
     int N = 1000;
 
-    double *h_A = new double[N];
-    double *h_B = new double[N];
-    double *h_C = new double[N];
-
+    //double *h_A = new double[N];
+    //double *h_B = new double[N];
+    //double *h_C = new double[N];
+	std::vector<double> h_A(N);
+	std::vector<double> h_B(N);
+	std::vector<double> h_C(N);
+	
     // initialize on host
     for (int i=0; i<N; i++) {
         h_A[i] = i;
@@ -83,7 +86,7 @@ int main(int argc, char **argv) {
     for (int i=0; i<N; i++) h_C[i] = 0.0;
 
     // perform C=A+B on host
-    vecAddonHost( h_A, h_B, h_C, N);
+    vecAddonHost( &h_A[0], &h_B[0], &h_C[0], N);
 
     // output
     std::cout << "host answer (first 5 only):" << std::endl;
@@ -98,7 +101,7 @@ int main(int argc, char **argv) {
 
     // run cuda add
     std::cout << "run cuda add" << std::endl;
-    vecAddonDevice( h_A,  h_B,  h_C, N);
+    vecAddonDevice( &h_A[0],  &h_B[0],  &h_C[0], N);
 
     // output
     std::cout << "device answer (first 5 only):" << std::endl;
@@ -108,8 +111,8 @@ int main(int argc, char **argv) {
     std::cout << std::endl;
 
 
-    delete[] h_A;
-    delete[] h_B;
-    delete[] h_C;
+//    delete[] h_A;
+//    delete[] h_B;
+//    delete[] h_C;
     return 0;
 }
