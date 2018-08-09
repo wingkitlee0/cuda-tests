@@ -72,8 +72,6 @@ int main(int argc, char **argv) {
     int N = 1000;
 
     //double *h_A = new double[N];
-    //double *h_B = new double[N];
-    //double *h_C = new double[N];
 	std::vector<double> h_A(N);
 	std::vector<double> h_B(N);
 	std::vector<double> h_C(N);
@@ -111,8 +109,6 @@ int main(int argc, char **argv) {
     std::cout << std::endl;
 
 
-//    delete[] h_A;
-//    delete[] h_B;
-//    delete[] h_C;
+//	delete[] h_A;
     return 0;
 }
