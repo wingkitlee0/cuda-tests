@@ -27,7 +27,7 @@ CXXFLAGS=-c -Wall -g -std=c++11 -fbounds-check
 # CFLAGS=-c -Wall -g -std=c++11 -DUSE_MKL -DVERBOSE -fopenmp $(MKLFLAGS)
 INCFLAGS=-I../ $(HDF5INC)
 LDFLAGS=
-CXXSRC= hdf5_ex2.cpp
+CXXSRC= hdf5_ex3.cpp
 
 CXXOBJ=$(CXXSRC:.cpp=.o)
 

@@ -33,8 +33,6 @@ int main(int argc, char** argv)
     std::cin >> filename;
 
     auto myoutput = std::make_shared<Output>(filename);
-    //auto myoutput = new Output(filename);
-
     fid = myoutput->fid;
 
     std::vector<int> data = {2,2,3,4,5,6};
@@ -42,7 +40,7 @@ int main(int argc, char** argv)
     /* create and write an integer type dataset named "dset" */
     H5LTmake_dataset(fid,"/dset",RANK,dims,H5T_NATIVE_INT,&data[0]);
 
-    //delete myoutput;
+    
 
     return 0;
 }
