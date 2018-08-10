@@ -34,7 +34,7 @@ while (id < N)
 }
 }
 
-int main(void)
+int main(int argc, char** argv)
 {
   int N = 20;
   int *d_y;
