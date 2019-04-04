@@ -67,7 +67,6 @@ int main(int argc, char** argv)
         3. get the data
     */
 
-    size_t     i, j, nrow, n_values;
     int rank_in;
 
     auto myinput = std::make_shared<Input>(filename);
@@ -82,7 +81,7 @@ int main(int argc, char** argv)
     /* get the dimensions of the dataset */
     H5LTget_dataset_info( myinput->fid,"/dset",&dims_in[0],NULL,NULL);
 
-    n_values = 1;
+    size_t n_values = 1;
     for (auto dim : dims_in) n_values *= (size_t) dim;
     
     std::cout << "# n_values = " << n_values << std::endl;
@@ -93,10 +92,10 @@ int main(int argc, char** argv)
     H5LTread_dataset_int( myinput->fid,"/dset",&data_in[0]);
 
     /* print it by rows */
-    nrow = (size_t)dims[1];
-    for (i=0; i<n_values/nrow; i++ )
+    auto nrow = (size_t)dims[1];
+    for (auto i=0; i<n_values/nrow; i++ )
     {
-        for (j=0; j<nrow; j++) printf ("  %d", data_in[i*nrow + j]);
+        for (auto j=0; j<nrow; j++) printf ("  %d", data_in[i*nrow + j]);
             printf ("\n");
     }
     
